@@ -114,89 +114,185 @@ In this lab we will set up an Active Directory Network with 4 VM's, using Virtua
 
 <p align="center">
 <b>Step 11: Go to the VirtualBox manager, select tools, and create new NAT network. By doing this, our virtual machines will be on the same network but will still have internet access.</b> <br/>
-<img src="" height="85%" width="85%" alt="Step 11"/>
+<img src="https://i.imgur.com/h9bqJqm.png" height="85%" width="85%" alt="Step 11"/>
 </p>
 
 
 <p align="center">
-<b>Step 12: After reboot, navigate to Start - Windows Administrative Tools, and create a new Organizational Tool under the active directory dropdown menu called _ADMINS. Inside _ADMINS create a user for yourself and make it an admin.</b> <br/>
-<img src="https://i.imgur.com/FEBcwIc.png" height="85%" width="85%" alt="Step 12"/>
+<b>Step 12: Next, head to the settings of each VM and ensure that they are all attached to our NAT Network that we just created in the previous step.</b> <br/>
+<img src="https://i.imgur.com/HRQUUpC.png" height="85%" width="85%" alt="Step 12"/>
 </p>
 
 
 <p align="center">
-<b>Step 13: Go to Server Manager Dashboard - Add roles and features. In Server Roles tab enable Remote Access, continue to Role Services tab (under Web Server Role) and enable Routing. Continue to install.</b> <br/>
-<img src="https://i.imgur.com/4S5agjD.png" height="85%" width="85%" alt="Step 13"/>
+<b>Step 13: Open Ubuntu VM, type "ip a". This shows IP, we need to modify this to reflect static IP on diagram. To fix this type "sudo nano etc netplan" and press tab to autofill. Copy the settings from the image below and apply.</b> <br/>
+<img src="https://i.imgur.com/aWTWtLw.png" height="85%" width="85%" alt="Step 13"/>
 </p>
 
 
 <p align="center">
-<b>Step 14: Go to Server Manager Dashboard - Tools, and select Routing and Remote Access. Right click on DC - Configure and Enable Routing and Remote Access, select NAT option, then use the network interface that is the actual Internet, not internal(refer to step 9). Continue to finish set up.</b> <br/>
-<img src="https://i.imgur.com/kf6xBhm.jpg" height="85%" width="85%" alt="Step 14"/>
+<b>Step 14: After the IP address is fixed, type "ip a" again and check that the changes have been applied successfully. To make sure I have internet connection I will ping google.com (you can press ctrl c to cancel).</b> <br/>
+<img src="https://i.imgur.com/VN3rge5.png" height="85%" width="85%" alt="Step 14"/>
 </p>
 
 
 <p align="center">
-<b>Step 15: To begin setup of RDACP, first we set up DHCP by going to Server Manager Dashboard - Add roles and features - enable DHCP Server under Server Roles tab, and finish install.</b> <br/>
-<img src="https://i.imgur.com/lmsvcs8.png" height="85%" width="85%" alt="Step 15"/>
+<b>Step 15: Now we will need to download Splunk on this VM. On your host PC go to Splunk.com - products- free trials and downloads - install Splunk Enterprise for Linux, ensure you download the .deb file.</b> <br/>
+<img src="https://i.imgur.com/LUapMGZ.png" height="85%" width="85%" alt="Step 15"/>
 </p>
 
 
 <p align="center">
-<b>Step 16: Next we will set up the Scope. On the Server Manager Dashboard, go to Tools - DHCP - right click IPv4 and select New Scope.</b> <br/>
-<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/v5MnQRghwXQg/dSGAwPAsPgGq3cCvUXuzBQtP5K7oIIWqGELVMYwV.png" height="85%" width="85%" alt="Step 16"/>
+<b>Step 16: Head back to the Ubuntu/Splunk VM and download the virtualbox guest additions using the following code:</b> <br/>
+<img src="https://i.imgur.com/eTOBv1N.png" height="85%" width="85%" alt="Step 16"/>
 </p>
 
 
 <p align="center">
-<b>Step 17: Configure settings based on example info here and on the diagram in the description of this lab. For the next steps in the configuration - add no exclusions - use default settings for next 3 steps - enter DC IP address for next 2 steps, then continue to finish.</b> <br/>
-<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/e1N4KwfaU7Ek/eLTlWyAeYIp7m5hkitnezQRb3BimGpu7FUKLNDvO.png" height="85%" width="85%" alt="Step 17"/>
+<b>Step 17: Go to top toolbar of the Ubuntu VM- devices- shared folders settings - add a new folder - and select the folder where Splunk was downloaded. Turn on the following options - readonly, automount, make permanent.</b> <br/>
+<img src="https://i.imgur.com/EsplxUk.png" height="85%" width="85%" alt="Step 17"/>
 </p>
 
 
 <p align="center">
-<b>Step 18: Go to the notepad application and create 1: a list of random names (I generated 1000 random names); and 2: PowerShell script to create new users using the generated names.</b> <br/>
-<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/LZf9bTJnvN4D/R9t9ERdMuIbpqEZTh6wJbn6QBH4UVPeMQ0pg6JcQ.png" height="85%" width="85%" alt="Step 18"/>
+<b>Step 18: Type sudo reboot to restart the VM. Then type sudo adduser (your username) vboxsf. This is to add our user to the vbox sf group.</b> <br/>
+<img src="https://i.imgur.com/a7OMQyY.png" height="85%" width="85%" alt="Step 18"/>
 </p>
 
 
 <p align="center">
-<b>Step 19: Open PowerShell ISE as admin, import and run the code you wrote to generate new users using the list of names from the previous step.</b> <br/>
-<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/NjqmatZ6wuxX/l99oaW1zvBTKo95aIu4H8IPOWlV4gKg6VTeZAL0a.png" height="85%" width="85%" alt="Step 19"/>
+<b>Step 19: Create a new directory called Share, then mount the folder from step 17 onto our directory called Share, using the provided code. Next, change to the newly created share directory.</b> <br/>
+<img src="https://i.imgur.com/t7LarIq.png" height="85%" width="85%" alt="Step 19"/>
 </p>
 
 
 <p align="center">
-<b>These are the results after running the script from the last step. Search for users in the Active Directory Users and Computers as a test, so we can ensure the script executed correctly.</b> <br/>
-<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/kp5sUuu7Wgzj/YBIYQT8aG8Ex5jH8QCLR9yRhLX5XHJ9ieE48WzzY.png" height="85%" width="85%" alt="Check Progress"/>
+<b>Step 20: Use the highlighted code to download and install Splunk. Then change into the directory where Splunk is located on the server using the second line of highlighted code.The third line of code (ls -la) displays  all of our files, including hidden ones, in the current directory.</b> <br/>
+<img src="https://i.imgur.com/Oyq3eOZ.png" height="85%" width="85%" alt="Step 20"/>
 </p>
 
 
 <p align="center">
-<b>Now, lets review the diagram and see what is left in the Lab. The only thing left to do is create the CLIENT1 VM and connect it to the internal network.</b> <br/>
-<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/JPgtrFIjesv4/ufif9RuLlHwg5WHgObd9gAqJ5aZPIIAcxPV6Jqkj.jpg" height="85%" width="85%" alt="Check Progress"/>
+<b>Step 21: Change to the user named Splunk by inputing the first line of highlighted code, then change to the bin directory because thats where all the binaries are located for Splunk to use. Then continue with the installation.</b> <br/>
+<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/X2ZRyk1mWX9X/tMx7LqtmDCK5Uc41EQ8A7gAFLJW6Vp7SCdYG9zXE.png" height="85%" width="85%" alt="Step 21"/>
 </p>
 
 
 <p align="center">
-<b>Step 20: Navigate to VirtualBox, create new virtual machine and name it CLIENT1. In the network settings, make sure it is attached to Internal Network. This will act as a client computer and allow us to simulate a corporate network like used in a hospital, school, or office.</b> <br/>
-<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/9DO3GQHVeU1N/5idNK3twNlLDT2I1RHo9mvUkPCWEsZwDiaiQV8Bh.png" height="85%" width="85%" alt="Step 20"/>
+<b>Step 22: Next, we will enter the following code that is highlighted to ensure that every time the VM is rebooted, Splunk will run with the correct user named Splunk.</b> <br/>
+<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/NaMLDYhf4gbV/L2SaSOkhXFsbFZHsowvPa6cnaU4COlcXhnon0MgE.png" height="85%" width="85%" alt="Step 22"/>
 </p>
 
 
 <p align="center">
-<b>Step 21: Run the new CLIENT1 VM, load up Windows 10 ISO, select Windows 10pro as OS, and finish configuration.</b> <br/>
-<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/Puar8HwgapxB/WW9d5XDW5SZZQK37DkLyo4mOObF59q8GQnpat1se.png" height="85%" width="85%" alt="Check Progress"/>
+<b>Step 23: Reboot the target VM, open command prompt, type "ipconfig" to check the IP address. You'll notice that the IP configuration does not match what is listed on our network architecture diagram. To change this, right click network on the bottom right corner of the toolbar- open network settings- change adapter options- right click on the adapter to open properties-double click IPV4 and configure the IP settings.</b> <br/>
+<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/JWsKlYB0kemm/kOuYxIfiTyq3QnWEABVbhX4TrKH0DW2TKMaLcYxG.png" height="85%" width="85%" alt="Step 23"/>
 </p>
 
 
 <p align="center">
-<b>Step 22: Login to Client VM (using one of the usernames we generated previously on the DC VM) to ensure everything works correctly.</b> <br/>
-<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/QAbPqPjxVP21/hwbP8SGVoZ6BCAd65Cd3yXPeIDtR2xAONWhPTHhJ.jpg" height="85%" width="85%" alt="Check Progress"/>
+<b>Step 24: On the same VM, open the web browser and we will try to access our Splunk server. Type in our IP 192.168.10.10:8000. We enter 8000 because that is the port that Splunk listens on. Once inside, log in using your account.</b> <br/>
+<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/7YEo9cuvwIPe/Ywp0gM2y2gd0o0qiNpMDHzQMKh2WbR0HRVvT5l34.png" height="85%" width="85%" alt="Step 24"/>
 </p>
 
 
 <p align="center">
-<b>Step 23: Run whoami command in Command Prompt as a final check to ensure the network functions as intended.</b> <br/>
-<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/z84sCx2gDuf3/h33p2rcQJuIihy6QrVPZsZrxyaOYws0ehIdyU274.jpg" height="85%" width="85%" alt="Check Progress"/>
+<b>Step 25: In a new tab, open and sign into Splunk.com. Then go to products - free trials and downloads - and download Splunk Universal Forwarder. Continue with default settings, skip the deployment server step, and use 192.168.10.10 port 9997 for the receiving Indexer, and finish install.</b> <br/>
+<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/gi79bQV4K4O9/yYrQJ0odnBPK8np96CqtVLMUAD2obNoOAuGtXNcy.png" height="85%" width="85%" alt="Step 25"/>
+</p>
+
+
+<p align="center">
+<b>Step 26: Next, we will download Sysmon. System Monitor (Sysmon) is a Windows system service and device driver that, once installed on a system, remains resident across system reboots to monitor and log system activity to the Windows event log. It provides detailed information about process creations, network connections, and changes to file creation time.</b> <br/>
+<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/1PAY3yvzd0BS/Gpn48yg31izUlEirjoKrW7c12HzGgrJorIvPfRxi.png" height="85%" width="85%" alt="Step 26"/>
+</p>
+
+
+<p align="center">
+<b>Step 27: Now we will need to download the correct Sysmon configuration. Luckily this is provided to us on Github by a creator named OlafHartong. Download the raw code for the repository named sysmonconfig.xml and save it in your downloads folder.</b> <br/>
+<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/Zoo2CczmfXfb/x9EUjfkEAhqcgwKQxhsNaxw2FCZR4QV7CDXdnj5s.png" height="85%" width="85%" alt="Step 27"/>
+</p>
+
+
+<p align="center">
+<b>Step 28: Open/run Powershell as an administrator, change directories to where Sysmon is downloaded, and copy the following code to access the correct file and install it</b> <br/>
+<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/FRNYzrTzHYyM/KmbN2MDUqe7hHakpkk9WdIZhy4EjuenLussZa73N.png" height="85%" width="85%" alt="Step 28"/>
+</p>
+
+
+<p align="center">
+<b>Step 29: Now we will need to create a inputs.conf file in the local directory of SplunkUniversalForwarder. This will instruct our Splunk Forwarder to push events related to Application, Security, System and Sysmon onto our Splunk Server. To achieve this, open notepad as an admin and copy the following code.</b> <br/>
+<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/mUePosd1ci88/G6UlKSechnOD2RU028NAGZ6oaWLIoF3jxL3igySI.png" height="85%" width="85%" alt="Step 29"/>
+</p>
+
+
+<p align="center">
+<b>Step 29 (continued): Save it under the highlighted directory as inputs.conf and change the save as type to "All Files".</b> <br/>
+<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/Tsujjvizwo6j/IpwVt1uZUmz89bxveHAF9KXBLx5fBuXGiR857SLW.png" height="85%" width="85%" alt="Step 29 continued"/>
+</p>
+
+
+<p align="center">
+<b>Step 30: Open the services application as an administrator, find SplunkForwarder, double click to open, go to the Log On tab, and change the Log on setting to Local System Account. We will need to restart SplunkForwarder to apply the changes we made. Apply changes, then restart the service as instructed by the pop-up.</b> <br/>
+<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/CluoUCRaHgfB/RAgiFkrjrBcV1Lk7TzDEoY9BffS7bMHYQ2DjFyxU.png" height="85%" width="85%" alt="Step 30"/>
+</p>
+
+
+<p align="center">
+<b></b> <br/>
+<img src="" height="85%" width="85%" alt="Step 31"/>
+</p>
+
+
+<p align="center">
+<b></b> <br/>
+<img src="" height="85%" width="85%" alt="Step 32"/>
+</p>
+
+
+<p align="center">
+<b></b> <br/>
+<img src="" height="85%" width="85%" alt="Step 33"/>
+</p>
+
+
+<p align="center">
+<b></b> <br/>
+<img src="" height="85%" width="85%" alt="Step 34"/>
+</p>
+
+
+<p align="center">
+<b></b> <br/>
+<img src="" height="85%" width="85%" alt="Step 35"/>
+</p>
+
+
+<p align="center">
+<b></b> <br/>
+<img src="" height="85%" width="85%" alt="Step 36"/>
+</p>
+
+
+<p align="center">
+<b></b> <br/>
+<img src="" height="85%" width="85%" alt="Step 37"/>
+</p>
+
+
+<p align="center">
+<b></b> <br/>
+<img src="" height="85%" width="85%" alt="Step 38"/>
+</p>
+
+
+<p align="center">
+<b></b> <br/>
+<img src="" height="85%" width="85%" alt="Step 39"/>
+</p>
+
+
+<p align="center">
+<b></b> <br/>
+<img src="" height="85%" width="85%" alt="Step 40"/>
 </p>
