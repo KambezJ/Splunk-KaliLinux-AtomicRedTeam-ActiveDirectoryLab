@@ -89,32 +89,32 @@ In this lab we will set up an Active Directory Network with 4 VM's, using Virtua
 
 
 <p align="center">
-<b>Step 7: Download the Windows Server 2022 ISO for the next virtual machine.</b> <br/>
+<b>Step 7: Download the Windows Server 2022 ISO.</b> <br/>
 <img src="https://i.imgur.com/TOaFQdN.png" height="85%" width="85%" alt="Step 7"/>
 </p>
 
 
 <p align="center">
-<b>Step 8: Go to Network Connections settings on the VM. Find out which network is the internal network and which one is your actual home/office internet, then rename them so they're easier to identify later.</b> <br/>
-<img src="https://i.imgur.com/91lHlfA.png" height="85%" width="85%" alt="Step 8"/>
+<b>Step 8: Create a new VM and select Windows Server 2022 as the ISO. Make sure to select the Desktop Experience version, otherwise it will give us a CLI instead of a GUI, then continue with Custom Install.</b> <br/>
+<img src="https://i.imgur.com/HjWpQIn.png" height="85%" width="85%" alt="Step 8"/>
 </p>
 
 
 <p align="center">
-<b>Step 9: Go to the IPv4 settings of the internal network settings (right click - properties) and configure the IP address.</b> <br/>
-<img src="https://i.imgur.com/iJsnMYA.png" height="85%" width="85%" alt="Step 9"/>
+<b>Step 9: Go to ubuntu.com and download the latest version of Ubuntu Server. Load this ISO onto VirtualBox as the fourth VM. This is the VM that will run the Splunk SIEM. Continue with all default options.</b> <br/>
+<img src="https://i.imgur.com/Bv2lQjN.png" height="85%" width="85%" alt="Step 9"/>
 </p>
 
 
 <p align="center">
-<b>Step 10: Navigate to the Server Manager Dashboard, click on "Add Roles and Features", select the server we are using, turn on "Active Directory Domain Services" in the Server Roles tab, and finish installing.</b> <br/>
-<img src="https://i.imgur.com/JCAob3j.png" height="85%" width="85%" alt="Step 10"/>
+<b>Step 10: On the Splunk/Ubuntu server we just created, enter the command "sudo apt-get update && sudo apt-get upgrade -y". This will update and upgrade all of our repositories.</b> <br/>
+<img src="https://i.imgur.com/t0njHdL.png" height="85%" width="85%" alt="Step 10"/>
 </p>
 
 
 <p align="center">
-<b>Step 11: Go to notifications tab (flag icon on the top server manager toolbar). Finish configuration of Active Directory. Add a new forest, name the root domain, set a DSRM password, turn off DNS options, and install.</b> <br/>
-<img src="https://i.imgur.com/Kmgh8ug.png" height="85%" width="85%" alt="Step 11"/>
+<b>Step 11: Go to the VirtualBox manager, select tools, and create new NAT network. By doing this, our virtual machines will be on the same network but will still have internet access.</b> <br/>
+<img src="" height="85%" width="85%" alt="Step 11"/>
 </p>
 
 
