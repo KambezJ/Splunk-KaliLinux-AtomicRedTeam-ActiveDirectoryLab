@@ -25,6 +25,8 @@ In this lab we will set up an Active Directory Network with 4 VM's, using Virtua
 - Automation of tasks using <b>Powershell, Command Prompt and BASH</b>.
     <br />
 - Security Audits and Penetration tests using <b>Kali Linux and Atomic Red Team</b>.
+    <br />
+- File hash validation (SHA 256)
 
 
 <h2>Languages and Utilities Used</h2>
@@ -51,44 +53,44 @@ In this lab we will set up an Active Directory Network with 4 VM's, using Virtua
 <h2>Program Walk-through</h2>
 
 <p align="center">
-<b>Step 1: Download Oracle VirtualBox and its associated Extension Pack.</b> <br/>
+<b>Step 1: Download Oracle VirtualBox and its associated Extension Pack. Before we download, open the SHA256 checksums link so we can ensure that the file has not be changed in transit</b> <br/>
 <img src="https://i.imgur.com/n7taX3i.png" height="85%" width="85%" alt="Step 1"/>
 </p>
 
 
 <p align="center">
-<b>Step 2: Download the Windows 10 ISO.</b> <br/>
-<img src="https://i.imgur.com/rv5P1gY.png" height="85%" width="85%" alt="Step 2"/>
+<b>Step 2: Open Powershell and validate the file hash to make sure it matches with the associated hash on the SHA256 page from step one. If it does not match, it most likely means the file was modified in transit and may be a threat.</b> <br/>
+<img src="https://i.imgur.com/xLL5JmI.jpeg" height="85%" width="85%" alt="Step 2"/>
 </p>
 
 
 <p align="center">
-<b>Step 3: Download the Windows Server 2019 ISO, 64bit version.</b> <br/>
-<img src="https://i.imgur.com/pkeBxgZ.png" height="85%" width="85%" alt="Step 3"/>
+<b>Step 3: Download Windows 10 ISO. When downloading, make sure you select Windows 10 pro, and continue with custom install. </b> <br/>
+<img src="https://i.imgur.com/6sBPoq3.png" height="85%" width="85%" alt="Step 3"/>
 </p>
 
 
 <p align="center">
-<b>Step 4: Open VirtualBox, create a new computer for the DC. Go to network settings to turn on a second adapter for the internal network</b> <br/>
-<img src="https://i.imgur.com/28BSzbT.png" height="85%" width="85%" alt="Step 4"/>
+<b>Step 4: Create the first VM on Oracle VirtualBox and load the Windows 10 ISO .</b> <br/>
+<img src="https://i.imgur.com/fOA2FpU.png" height="85%" width="85%" alt="Step 4"/>
 </p>
 
 
 <p align="center">
-<b>Step 5: Run the new VirtualBox we created and wait for Windows to download.</b> <br/>
-<img src="https://i.imgur.com/lZb4Jhw.png" height="85%" width="85%" alt="Step 5"/>
+<b>Step 5: Download Kali Linux. Since we are using VirtualBox, we can download the pre built VM version specifically made for VirtualBox.</b> <br/>
+<img src="https://i.imgur.com/8zba7Zg.png" height="85%" width="85%" alt="Step 5"/>
 </p>
 
 
 <p align="center">
-<b>Step 6: Continue with the Windows Server setup and make sure you select the "desktop experience" version of the OS, otherwise we will only have a CLI instead of a GUI.</b> <br/>
-<img src="https://i.imgur.com/cMsO6pM.png" height="85%" width="85%" alt="Step 6"/>
+<b>Step 6: Load Kali Linux onto VirtualBox as a seperate VM.</b> <br/>
+<img src="https://i.imgur.com/xUYuVVg.png" height="85%" width="85%" alt="Step 6"/>
 </p>
 
 
 <p align="center">
-<b>Step 7: Once fully set up, go to the top of the window and select the devices option, and from there click on insert guest additions CD image. Then, navigate to "This PC" - "Devices and drives" - and open the CD Drive with the VirtualBox Guest Additions.</b> <br/>
-<img src="https://i.imgur.com/F4etrJ7.png" height="85%" width="85%" alt="Step 7"/>
+<b>Step 7: Download the Windows Server 2022 ISO for the next virtual machine.</b> <br/>
+<img src="https://i.imgur.com/TOaFQdN.png" height="85%" width="85%" alt="Step 7"/>
 </p>
 
 
