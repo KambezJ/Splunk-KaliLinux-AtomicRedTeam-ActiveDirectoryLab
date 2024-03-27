@@ -6,7 +6,7 @@ In this lab we will set up an Active Directory Network with 4 VM's, using Virtua
 
 <br />
 <p align="center">
-<img src="https://imgur.com/OkmLpyH" height="85%" width="85%" alt="Diagram of what this lab will achieve"/>
+<img src="https://i.imgur.com/OkmLpyH.png?1" height="85%" width="85%" alt="Diagram of what this lab will achieve"/>
 </p>
 
 
@@ -14,13 +14,17 @@ In this lab we will set up an Active Directory Network with 4 VM's, using Virtua
 
 - <b>Active Directory</b> Creation, Configuration and Administration.
     <br />
-- Threat, Attack, Vulnerability detection and analysis using <b>Splunk Enterprise</b>.
+- Threat, Attack, Vulnerability detection and analysis using <b>Splunk Enterprise</b> and <b>MITRE ATT&CK Framework</b>.
     <br />
-- <b>Network Configuration</b>
+- Basic <b>Network Configuration</b>.
     <br />
-- Creation and Configuration of <b>Virtual Machines</b> using <b>Ubuntu, Kali Linux, Windows Server 2019, and Windows 10.</b>
+- Creation of <b>Virtual Machines</b> using <b>Ubuntu, Kali Linux, Windows Server 2019, and Windows 10.</b>
     <br />
-
+- Generation of telemetry using <b>Splunk Universal Forwarder</b> and <b>Sysmon</b>.
+    <br />
+- Automation of tasks using <b>Powershell, Command Prompt and BASH</b>.
+    <br />
+- Security Audits and Penetration tests using <b>Kali Linux and Atomic Red Team</b>.
 
 
 <h2>Languages and Utilities Used</h2>
