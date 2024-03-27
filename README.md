@@ -16,9 +16,9 @@ In this lab we will set up an Active Directory Network with 4 VM's, using Virtua
     <br />
 - Threat, Attack, Vulnerability detection and analysis using <b>Splunk Enterprise</b> and <b>MITRE ATT&CK Framework</b>.
     <br />
-- Basic <b>Network Configuration</b>.
+- Basic <b>Network Configuration</b>: IPv4, DNS, DHCP.
     <br />
-- Creation of <b>Virtual Machines</b> using <b>Ubuntu, Kali Linux, Windows Server 2019, and Windows 10.</b>
+- Creation of <b>Virtual Machines</b> using <b>Ubuntu, Kali Linux, Windows Server 2022, and Windows 10.</b>
     <br />
 - Generation of telemetry using <b>Splunk Universal Forwarder</b> and <b>Sysmon</b>.
     <br />
@@ -29,16 +29,23 @@ In this lab we will set up an Active Directory Network with 4 VM's, using Virtua
 
 <h2>Languages and Utilities Used</h2>
 
-- <b>PowerShell ISE:</b> Write script to generate random names and create users within the Internal/Private Network.
-- <b>Oracle VirtualBox:</b> Set up virtual machine for Domain Controller and Client.
-- <b>Server Manager:</b> Configure Internal Network, set up DHCP, enable Remote Access and Routing.
-- <b>Command Prompt:</b> Check work to ensure IP addresses match (ipconfig) and users are generated successfully (whoami).
+- <b>PowerShell</b>
+- <b>Command Prompt (Batch)</b>
+- <b>Kali Linux Terminal (Bash)</b>
+- <b>Oracle VirtualBox</b>
+- <b>Server Manager</b>
+- <b>Splunk Enterprise and Universal Forwarder</b>
+- <b>Atomic Red Team</b>
+- <b>Sysmon</b>
 
 
 <h2>Environments Used</h2>
 
-- <b>Windows 10 ISO:</b> Used for the Client VM.
-- <b>Windows Server 2019 ISO</b> Used for Domain Controller VM.
+- <b>Windows 10 ISO:</b>
+- <b>Windows Server 2022 ISO</b>
+- <b>Kali Linux</b>
+- <b>Ubuntu</b>
+- <b>Oracle VirtualBox</b>
 
 
 <h2>Program Walk-through</h2>
