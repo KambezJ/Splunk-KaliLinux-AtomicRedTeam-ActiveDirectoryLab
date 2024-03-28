@@ -43,10 +43,10 @@ In this lab we will set up an Active Directory Network with 4 VM's, using Virtua
 
 <h2>Environments Used</h2>
 
-- <b>Windows 10 ISO:</b>
-- <b>Windows Server 2022 ISO</b>
-- <b>Kali Linux</b>
-- <b>Ubuntu</b>
+- <b>Windows 10 ISO:</b> Target PC/VM
+- <b>Windows Server 2022 ISO:</b> Active Directory Domain Controller
+- <b>Kali Linux:</b> Attacking PC/VM
+- <b>Ubuntu:</b> Splunk Server
 - <b>Oracle VirtualBox</b>
 
 
