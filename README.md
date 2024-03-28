@@ -443,7 +443,7 @@ In this lab we will set up an Active Directory Network with 4 VM's, using Virtua
 
 
 <p align="center">
-<b>Step 63: Go back to the Splunk Enterprise Server page search for "index=endpoint powershell" to see if we can find that code from the previous step.</b> <br/>
+<b>Step 63: Go back to the Splunk Enterprise Server page search for "index=endpoint powershell" to see if we can find that code from the previous step. An event was generated with the same code, which means that telemtry was generated and our Splunk SIEM tool was able to recognize the attack. In the future, you can add an IDS or create alerts on the Splunk SIEM to notify us of any suspicious activity.</b> <br/>
 <img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/YPBk82UgyR6U/QlEulUHZ3U3p1r6HeHzvKiHSY5ayYxzot70G1iKi.png" height="85%" width="85%" alt="Step 63"/>
 </p>
 
