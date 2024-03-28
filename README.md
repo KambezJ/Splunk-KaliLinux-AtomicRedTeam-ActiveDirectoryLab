@@ -395,48 +395,64 @@ In this lab we will set up an Active Directory Network with 4 VM's, using Virtua
 
 
 <p align="center">
-<b></b> <br/>
-<img src="" height="85%" width="85%" alt="Step 56"/>
+<b>Step 56: Now we can head back to Powershell and input the following code to download ART from the internet. When finished, press Y and enter to install the dependencies.</b> <br/>
+<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/7qgX9IEsKv7Y/KFK1qYfjIYeWkQzpLLVann6YNka8NrEz2MaMVEbV.png" height="85%" width="85%" alt="Step 56"/>
 </p>
 
 
 <p align="center">
-<b></b> <br/>
-<img src="" height="85%" width="85%" alt="Step 57"/>
+<b>Step 57: Open the C drive and look inside the atomics folder inside of AtomicRedTeam, you will see files that start with T, these are technique ID's that map back to the MITRE ATT@CK framework.</b> <br/>
+<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/pbQd989agcJX/f0ZJqdoxrmNwJazXgaxOvqiI6O07vqk1e3gk0QKc.png" height="85%" width="85%" alt="Step 57"/>
 </p>
 
 
 <p align="center">
-<b></b> <br/>
-<img src="" height="85%" width="85%" alt="Step 58"/>
+<b>Helpful tip: The MITRE ATT@CK framework provides guidance on what an attacker might do once they have compromised an environment. By going to https://attack.mitre.org, you can see what all of these different Technique ID's mean. By hovering over the attacks with your cursor, you will see the associated Technique ID's. (For this example we will look at a "create local account" tactic with the ID of T1136.001). </b> <br/>
+<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/V2EhCMke6Qpr/UE6n81MMjzGOhMz8HPp3QViQ9Xpv8rF8VKk5jqrk.png" height="85%" width="85%" alt="Helpful tip 2"/>
 </p>
 
 
 <p align="center">
-<b></b> <br/>
-<img src="" height="85%" width="85%" alt="Step 59"/>
+<b>Step 58: To use the command to invoke the T1136.001 attack, type in the following code. This will automatically generate telemtry on the Splunk server, based on creating a local account (username is NewLocalUser).</b> <br/>
+<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/4jktvcWn2YMe/1H4asZ6T4vGHC3rHRQrve3G9kJpV77MQkgzHCZUN.png" height="85%" width="85%" alt="Step 58"/>
 </p>
 
 
 <p align="center">
-<b></b> <br/>
-<img src="" height="85%" width="85%" alt="Step 60"/>
+<b>Step 59: If we go into our Splunk Enterprise server page and try to search for this event, it will say no results found. This tells us that if an attacker were to try creating new local accounts under the current system settings, we would not be able to detect it; we are essentially blind to this activity/attack. This is how ATR is helpful in a vulnerability detection role; it will identify the gaps in visibility and generate the telemtry to see if we can detect the activity.</b> <br/>
+<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/QAvsfsLBf5GA/4zgcxP2h4Vr7yyj2vRJrhlv5MV9yzqjIY1IQ4zgP.png" height="85%" width="85%" alt="Step 59"/>
 </p>
 
 
 <p align="center">
-<b></b> <br/>
-<img src="" height="85%" width="85%" alt="Step 61"/>
+<b>Step 60: Lets try the same thing with a different attack technique. Going back to the MITRE page, we will select Command and Scripting Interpreter, specifically for Powershell (T1059.001). </b> <br/>
+<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/Zhs26K7WvlOI/xpBLa9QsxSyhNnXPrbJB3kBfS13R5mrZ3twSbksq.png" height="85%" width="85%" alt="Step 60"/>
 </p>
 
 
 <p align="center">
-<b></b> <br/>
-<img src="" height="85%" width="85%" alt="Step 62"/>
+<b>Step 61: Now go back to Powershell and type in this code to invoke the attack.</b> <br/>
+<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/5IJq6OGzRNBU/0Hm2GH5mOQP127rnMUuWQdxfcN9pfbPqZhcWHe9x.png" height="85%" width="85%" alt="Step 61"/>
 </p>
 
 
 <p align="center">
-<b></b> <br/>
-<img src="" height="85%" width="85%" alt="Step 63"/>
+<b>Step 62: Once it runs, you will receive notifications that Defender has found threats, and you will see the highlighted code.</b> <br/>
+<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/QL45PQmi2F2V/TV29Ng860MjPNkDljjEAXxqkijRRGCZrW6M3uEBK.png" height="85%" width="85%" alt="Step 62"/>
+</p>
+
+
+<p align="center">
+<b>Step 63: Go back to the Splunk Enterprise Server page search for "index=endpoint powershell" to see if we can find that code from the previous step.</b> <br/>
+<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/YPBk82UgyR6U/QlEulUHZ3U3p1r6HeHzvKiHSY5ayYxzot70G1iKi.png" height="85%" width="85%" alt="Step 63"/>
+</p>
+
+
+<p align="center">
+<img src="https://pixelfed.de/storage/m/_v2/676491643439523429/062ac74bd-fb82c6/nnGsZlFGZb4w/uhvwiT13pV7L3Vn3ccnbjj5VLtE014UFICHhJzTV.png" height="85%" width="85%" alt="Step 63"/>
+</p>
+
+
+<p align="center">
+<b>Using the information and strategies from this lab, we can identify and strenghten our threat, vulnerability, and attack detection by finding our security blind spots and building alerts to detect them.</b> <br/>
 </p>
