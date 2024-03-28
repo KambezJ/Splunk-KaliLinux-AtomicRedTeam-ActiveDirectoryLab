@@ -22,11 +22,11 @@ In this lab we will set up an Active Directory Network with 4 VM's, using Virtua
     <br />
 - Generation of telemetry using <b>Splunk Universal Forwarder</b> and <b>Sysmon</b>.
     <br />
-- Automation of tasks using <b>Powershell, Command Prompt and BASH</b>.
+- Automation of tasks using <b>Powershell, Batch and BASH</b>.
     <br />
-- Security Audits and Penetration tests using <b>Kali Linux and Atomic Red Team</b>.
+- Security Auditing and Penetration testing using <b>Kali Linux and Atomic Red Team</b>.
     <br />
-- File hash validation (SHA 256)
+- File hash validation <b>(SHA 256)</b>
 
 
 <h2>Languages and Utilities Used</h2>
