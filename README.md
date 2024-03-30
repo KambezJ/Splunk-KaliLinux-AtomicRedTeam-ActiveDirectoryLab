@@ -1,4 +1,4 @@
-<h1>Using Splunk SIEM tool to analyze attacks, vulnerabilities, and security blind spots on a custom Active Directory Network</h1>
+<h1>Using Splunk SIEM to analyze attacks, vulnerabilities, and security blind spots on a custom Active Directory Network.</h1>
 
 
 <h2>Description</h2>
