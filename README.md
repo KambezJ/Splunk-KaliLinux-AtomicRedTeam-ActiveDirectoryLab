@@ -119,7 +119,7 @@ In this lab we will set up an Active Directory Network with 4 VM's, using Virtua
 
 
 <p align="center">
-<b>Step 12: Next, head to the settings of each VM and ensure that they are all attached to our NAT Network that we just created in the previous step.</b> <br/>
+<b>Step 12: Next, head to the settings of each VM and ensure that they are all attached to the NAT Network that we just created in the previous step.</b> <br/>
 <img src="https://i.imgur.com/HRQUUpC.png" height="85%" width="85%" alt="Step 12"/>
 </p>
 
