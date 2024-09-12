@@ -2,7 +2,7 @@
 
 
 <h2>Description</h2>
-In this lab we will set up an Active Directory Network with 4 VMs, using VirtualBox. The network will include 2 servers; a Splunk Enterprise Server running on Ubuntu, and a Windows Server housing the Active Directory. The Windows Server will act as our Domain Controller and have Splunk Universal Forwarder and Sysmon installed to generate telemetry. We will also create a Target VM running on Windows 10, join it to our domain, create domain users; and install Splunk Universal Forwarder, Sysmon, and Atomic Red Team. The Target PC and Active Directory will then be attacked by a VM with Kali Linux installed, which will be pushing brute force attacks using crowbar and a password list. Atomic Red Team (ART) will be used in conjunction with the MITRE ATT&CK Framework to better understand attacks/vulnerabilities/threats and discover blind spots in detection by invoking various types of attacks with ART. The Splunk Enterprise dashboard will be used to query the telemetry generated across the network and to learn how to identify and detect those attacks. By the end of this lab, you will gain a better understanding of building a logical diagram, basic networking, active directory configuration, virtual machines, Splunk, and vulnerability/threat/attack detection. To better visualize how the network will function, you may refer to the diagram below.
+In this lab we will set up an Active Directory Network with 4 VMs, using VirtualBox. The network will include 2 servers; a Splunk Enterprise Server running on Ubuntu, and a Windows Server housing the Active Directory. The Windows Server will act as our Domain Controller and have Splunk Universal Forwarder and Sysmon installed to generate telemetry. We will also create a Target VM running on Windows 10, join it to our domain, create domain users; and install Splunk Universal Forwarder, Sysmon, and Atomic Red Team. The Target PC and Active Directory will then be attacked by a VM with Kali Linux installed, which will be pushing brute force attacks using crowbar and a password list. Atomic Red Team (ART) will be used  with the MITRE ATT&CK Framework to better understand attacks/vulnerabilities/threats and discover blind spots in detection by invoking various types of attacks with ART. The Splunk Enterprise dashboard will be used to query the telemetry generated across the network and to learn how to identify and detect those attacks. By the end of this lab, you will gain a better understanding of building a logical diagram, basic networking, active directory configuration, virtual machines, Splunk, and vulnerability/threat/attack detection. To better visualize how the network will function, refer to the diagram below.
 
 <br />
 <p align="center">
@@ -59,13 +59,13 @@ In this lab we will set up an Active Directory Network with 4 VMs, using Virtual
 
 
 <p align="center">
-<b>Step 2: Open Powershell and validate the file hash to make sure it matches with the associated hash on the SHA256 page from step one. If it does not match, it most likely means the file was modified in transit and may be a threat.</b> <br/>
+<b>Step 2: Open Powershell and validate the file hash to ensure it matches the associated hash on the SHA256 page from step one. If it does not match, it most likely means the file was modified in transit and may be a threat.</b> <br/>
 <img src="https://i.imgur.com/xLL5JmI.jpeg" height="85%" width="85%" alt="Step 2"/>
 </p>
 
 
 <p align="center">
-<b>Step 3: Download Windows 10 ISO. When downloading, make sure you select Windows 10 pro and continue with custom install. </b> <br/>
+<b>Step 3: Download Windows 10 ISO. For the configuration settings, select Windows 10 Pro and continue with the custom install options. </b> <br/>
 <img src="https://i.imgur.com/6sBPoq3.png" height="85%" width="85%" alt="Step 3"/>
 </p>
 
